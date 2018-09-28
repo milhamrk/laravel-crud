@@ -15,10 +15,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/halamandua', function () {
-    return view('halamandua');
-});
-
-Route::get('/halamantiga', function () {
-    return view('halamantiga');
-});
+Route::get('contoh/halamandua', 'Contoh@halamandua');
+Route::get('contoh/halamantiga', 'Contoh@halamantiga');
+Route::resource('contoh', 'Contoh');
