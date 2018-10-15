@@ -46,6 +46,9 @@
 					<li><a href="/contoh/halamantiga">halaman tiga</a></li>
 				</ul>
             </li>
+			<li>
+                <a href="/mahasiswa">Mahasiswa</a>
+            </li>
         </ul>
     </aside>
 

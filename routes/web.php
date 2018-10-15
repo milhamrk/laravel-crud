@@ -17,4 +17,5 @@ Route::get('/', function () {
 
 Route::get('contoh/halamandua', 'Contoh@halamandua');
 Route::get('contoh/halamantiga', 'Contoh@halamantiga');
+Route::get('mahasiswa', 'Contoh@mahasiswa');
 Route::resource('contoh', 'Contoh');
