@@ -2,23 +2,23 @@
 
 use Illuminate\Database\Seeder;
 
-class KontakSeeder extends Seeder
+class MahasiswaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      *
      * @return void
      */
-    public function run(){
-        //
+    public function run()
+    {
         $faker = Faker\Factory::create(); //import library faker
 
-        $limit = 10; //batasan berapa banyak data
+        $limit = 10;
 
         for ($i = 0; $i < $limit; $i++) {
-            DB::table('kontak')->insert([ //mengisi datadi database
+            DB::table('mahasiswa')->insert([
                 'nama' => $faker->name,
-                'email' => $faker->unique()->email, //email unique sehingga tidak ada yang sama
+                'email' => $faker->unique()->email, //email unique
                 'nohp' => $faker->phoneNumber,
                 'alamat' => $faker->address,
             ]);

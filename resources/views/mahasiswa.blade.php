@@ -24,7 +24,24 @@
                 </tr>
                 </thead>
                 <tbody>
-                
+                @php $no = 1; @endphp
+                @foreach($data as $d)
+                    <tr>
+                        <td>{{ $no++ }}</td>
+                        <td>{{ $d->nama }}</td>
+                        <td>{{ $d->email }}</td>
+                        <td>{{ $d->nohp }}</td>
+                        <td>{{ $d->alamat }}</td>
+                        <td>
+                            <form action="{{ route('mahasiswa.destroy', $d->id) }}" method="post">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                                <a href="{{ route('mahasiswa.edit',$d->id) }}" class=" btn btn-sm btn-primary">Edit</a>
+                                <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>
