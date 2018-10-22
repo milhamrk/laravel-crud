@@ -6,7 +6,7 @@
         <div class="content">
             <!-- Remove This Before You Start -->
             <h1>Tabel User</h1>
-            @if(Session::has('alert-success'))
+            @if(Session::has('alert-success')) 
                 <div class="alert alert-success">
                     <strong>{{ \Illuminate\Support\Facades\Session::get('alert-success') }}</strong>
                 </div>
