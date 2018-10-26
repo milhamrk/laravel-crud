@@ -25,7 +25,7 @@ class Mahasiswa extends Controller
      */
     public function create()
     {
-        //
+        return view('mahasiswa_create');
     }
 
     /**
@@ -36,7 +36,13 @@ class Mahasiswa extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new ModelMahasiswa();
+		$data->nama = $request->nama;
+		$data->email = $request->email;
+		$data->nohp = $request->nohp;
+		$data->alamat = $request->alamat;
+		$data->save();
+		return redirect()->route('mahasiswa.index')->with('alert-success','Berhasil Menambahkan Data!');
     }
 
     /**

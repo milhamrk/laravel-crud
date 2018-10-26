@@ -47,10 +47,13 @@
 				</ul>
             </li>
 			<li>
-                <a href="/mahasiswa">Mahasiswa</a>
+                <a href="{{ route('mahasiswa.index') }}">Mahasiswa</a>
+				<ul class="main-nav">
+					<li><a href="{{ route('mahasiswa.create') }}">Tambah</a></li>
+				</ul>
             </li>
 			<li>
-                <a href="/user">User</a>
+                <a href="{{ route('user.index') }}">User</a>
             </li>
         </ul>
     </aside>
