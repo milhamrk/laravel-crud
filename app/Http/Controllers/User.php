@@ -15,7 +15,7 @@ class User extends Controller
     public function index()
     {
         $data = UserModel::all();
-        return view('user',compact('data'));
+        return view('user')->with(compact('data'));
     }
 
     /**
@@ -25,7 +25,7 @@ class User extends Controller
      */
     public function create()
     {
-        //
+        return view('user_create');
     }
 
     /**
@@ -36,7 +36,12 @@ class User extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new UserModel();
+		$data->nama = $request->nama;
+		$data->username = $request->username;
+		$data->password = $request->password;
+		$data->save();
+		return redirect()->route('user.index')->with('alert-success','Berhasil Menambahkan Data!');
     }
 
     /**
@@ -58,7 +63,8 @@ class User extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = UserModel::where('id',$id)->get();
+        return view('user_edit',compact('data'));
     }
 
     /**
@@ -70,7 +76,12 @@ class User extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = UserModel::where('id',$id)->first();
+        $data->nama = $request->nama;
+        $data->username = $request->username;
+        $data->password = $request->password;
+        $data->save();
+        return redirect()->route('user.index')->with('alert-success','Data berhasil diubah!');
     }
 
     /**
@@ -81,6 +92,8 @@ class User extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = UserModel::where('id',$id)->first();
+        $data->delete();
+        return redirect()->route('user.index')->with('alert-success','Data berhasi dihapus!');
     }
 }

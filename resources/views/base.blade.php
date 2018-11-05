@@ -54,6 +54,9 @@
             </li>
 			<li>
                 <a href="{{ route('user.index') }}">User</a>
+				<ul class="main-nav">
+					<li><a href="{{ route('user.create') }}">Tambah</a></li>
+				</ul>
             </li>
         </ul>
     </aside>
