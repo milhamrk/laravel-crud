@@ -58,6 +58,12 @@
 					<li><a href="{{ route('user.create') }}">Tambah</a></li>
 				</ul>
             </li>
+			<li>
+                <a href="{{ route('file.index') }}">File</a>
+				<ul class="main-nav">
+					<li><a href="{{ route('file.create') }}">Tambah</a></li>
+				</ul>
+            </li>
         </ul>
     </aside>
 
