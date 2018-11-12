@@ -65,7 +65,8 @@ class fileController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = file::where('id',$id)->first();
+		return view('fileTambah', compact('data'));
     }
 
     /**
@@ -77,7 +78,20 @@ class fileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+		$data = file::findOrFail($id);
+		$data->nama = $request->nama;
+		if(empty($request->file('email'))){
+			$data->file = $data->file;
+		}
+		else{
+			unlink('data/'.$data->file);
+			$uploadedFile = $request->file('email');
+			$nama = date('Ydhmis').".".$uploadedFile->getClientOriginalExtension();
+			$uploadedFile->move('data',$nama);
+			$file->file = $nama;
+		}
+		$data->save();
+		return redirect('file')->with('alert-success','Data file berhasil disimpan');
     }
 
     /**

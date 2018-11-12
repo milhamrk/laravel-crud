@@ -5,13 +5,14 @@
         <!-- Add Your Content Inside -->
         <div class="content">
             <!-- Remove This Before You Start -->
-            <h1>Tambah File</h1>
+            <h1>{{ isset($data) ? 'Ubah' : 'Tambah'  }} File</h1>
             <hr>
-            <form action="{{ route('file.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ isset($data) ? route('file.update',$data->id) : route('file.store') }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
+				{{ method_field('PUT') }}
                 <div class="form-group">
                     <label for="nama">Nama:</label>
-                    <input type="text" class="form-control" id="usr" name="nama">
+                    <input type="text" class="form-control" id="usr" name="nama" value="{{ isset($data) ? $data->nama : '' }}">
                 </div>
 				<div class="form-group">
                     <label for="email">File:</label>
